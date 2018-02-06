@@ -1,0 +1,25 @@
+{
+  "pages":[
+    "pages/login/login",
+    "pages/home/home",
+    "pages/stores/stores",
+    "pages/policylist/policylist",
+    "pages/policybind/policybind",
+    
+    "pages/changepass/changepass",
+    "pages/ucenter/ucenter",
+    "pages/research/research",
+    "pages/editstore/editstore",
+    "pages/storedetail/storedetail",
+    "pages/instore/instore",
+    "pages/policydetail/policydetail",
+    "pages/f-pass/f-pass"
+  ],
+  "window":{
+    "backgroundColor": "#cccccc",
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#0b58a6",
+    "navigationBarTitleText": "板城酒业",
+    "navigationBarTextStyle":"white"
+  }
+}

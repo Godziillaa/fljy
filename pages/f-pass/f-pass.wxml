@@ -1,0 +1,5 @@
+<!--pages/f-pass/f-pass.wxml-->
+<view class="container">
+  <text>如您忘记登录密码，请您及时联系丰联酒业管理人员帮您重置密码，请重置后妥善保存密码。</text>
+  <text>联系电话：0314-8849201</text>
+</view>

@@ -1,0 +1,27 @@
+/* pages/editstore/editstore.wxss */
+.section{
+  padding: 0 40rpx;
+}
+textarea.line3{
+  height: 180rpx;
+}
+textarea.line2{
+  height: 120rpx;
+}
+.mb10{
+  margin-bottom: 10rpx;
+}
+.address-area{
+  width: 85%;
+}
+.lbs-icon{
+  width: 80rpx;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+.lbs-icon image{
+  width: 50%;
+}

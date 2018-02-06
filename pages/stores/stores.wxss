@@ -1,0 +1,103 @@
+/* pages/dealers/dealers.wxss */
+.add-btn{
+  width: 60rpx;
+  height: 60rpx;
+  text-align: center;
+  line-height: 59rpx;
+  color: #fff;
+  background: rgba(255,255,255,0.3);
+  border-radius: 10rpx;
+  position: absolute;
+  right: 40rpx;
+  top: 60rpx;
+  font-size: 40rpx;
+  overflow: hidden;
+}
+.store-list-avatar{
+  width: 150rpx;
+  height: 200rpx;
+  float: left;
+  margin-left: 40rpx;
+  background-color: #efefef;
+}
+.store-list-info{
+  overflow: hidden;
+}
+.normal-list-dt{
+  margin-bottom: 10rpx;
+}
+.normal-list{
+   padding-left:120rpx; 
+   line-height: 40rpx;
+   margin: 0 40rpx;
+}
+.store-nav{
+  width: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  position: absolute;
+  top: 50%;
+  right: 40rpx;
+  border-radius: 10rpx;
+  text-align: center;
+  z-index: 20;
+}
+.store-nav.green{
+  border: #50a30c solid 1rpx;
+  color: #50a30c;
+}
+.store-nav.blue{
+  background-color: #2687e9;
+  color: #fff;
+}
+.longtapmask{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.5;
+  z-index: 10;
+}
+.del-btn{
+  width: 150rpx;
+  height: 100%;
+  background-color: #e73f36;
+  border: none;
+  color: #fff;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 30;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+  transition: .3s;
+}
+.del-btn.hanging{
+  margin-right: 0;
+}
+.no-data{
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translate(0,-50%);
+}
+.no-data image{
+  width: 300rpx;
+  height: 200rpx;
+  display: block;
+  margin: 0 auto;
+}
+.btn-bottom{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}

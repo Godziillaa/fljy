@@ -1,0 +1,89 @@
+<!--pages/editstore/editstore.wxml-->
+<view class="container">
+  <form bindsubmit="formSubmit">
+    <view class="form-block">
+      <view class="section">
+        <view class="form-label">店名称</view>
+        <view class="form-col">
+          <input data-name="name" name="name" class="form-control" placeholder="输入店铺名称" value="{{store['name']}}" disabled="{{formloading}}" bindblur="inputBlur" />
+        </view>
+      </view>
+      <view class="section">
+        <view class="form-label">联系人</view>
+        <view class="form-col">
+          <input data-name="linkman" name="linkman" class="form-control" placeholder="输入联系人" value="{{store['linkman']}}" disabled="{{formloading}}" bindblur="inputBlur"/>
+        </view>
+      </view>
+      <view class="section">
+        <view class="form-label">店铺电话</view>
+        <view class="form-col">
+          <input data-name="mobile" type="number" name="mobile" class="form-control" placeholder="输入店铺电话" value="{{store['mobile']}}" disabled="{{formloading}}" bindblur="inputBlur"/>
+        </view>
+      </view>
+      <view class="section">
+        <view class="form-label">店铺分类</view>
+        <picker name="lvl" bindchange="categoryChange" value="{{category_index}}" range="{{categoryArry}}" disabled="{{formloading}}">
+          <view class="picker">
+            {{category_name}}
+          </view>
+        </picker>
+      </view>
+      <view class="section">
+        <view class="form-label">经销商</view>
+        <picker name="dealer" bindchange="dealerChange" value="{{dealer_index}}" range="{{dealerArry}}" disabled="{{formloading}}">
+          <view class="picker">
+            {{dealer_name}}
+          </view>
+        </picker>
+      </view>
+    </view>
+    <view class="form-block">
+      <view class="section">
+        <view class="form-label">地址选取</view>
+        <view class="form-col">
+          <view class="clearfix">
+            <textarea data-name="address" name="address" class="form-control line2 address-area" disabled="true" placeholder="选择店铺地址" maxlength="50" value="{{store['address']}}" />
+            <view class="lbs-icon" bindtap="chooseAddress" disabled="{{formloading}}">
+              <image src="/resources/icons/lbs.png" mode="aspectFit"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+      <view class="section">
+        <view class="form-label">地址描述</view>
+        <view class="form-col">
+          <textarea data-name="address_desc" name="address_desc" class="form-control line2" placeholder="店铺地址描述" maxlength="50" value="{{store['address_desc']}}" disabled="{{formloading}}" bindblur="inputBlur"/>
+        </view>
+      </view>
+    </view>
+    <view class="form-block">
+      <view class="section">
+        <view class="form-label">门头照片</view>
+        <view class="form-col">
+          <view class="thumb-list">
+            <block wx:for="{{thumbArr.thumb}}" wx:for-item="thumb" wx:for-index="x" wx:key="">
+              <view class="prview-thumb-wrap">
+                <image src="{{thumb}}" mode="aspectFill" data-arr="{{thumbArr.original}}" data-src="{{thumbArr.original[x]}}" bindtap="prviewthumb"></image>
+                <view class="remove-thumb-btn" data-index="{{x}}" bindtap="removeThumb"></view>
+              </view>
+            </block>
+            <view class="prview-thumb-wrap" wx:if="{{store['shop_images'].length<3}}">
+              <view class="new-thumb-btn" bindtap="addThumb"></view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="form-block">
+      <view class="section">
+        <view class="form-label">备注</view>
+        <view class="form-col">
+          <textarea data-name="remarks" name="remarks" class="form-control line3" placeholder="备注" maxlength="50" value="{{store['remarks']}}" disabled="{{formloading}}" bindblur="inputBlur"/>
+        </view>
+      </view>
+    </view>
+    <view class="btn-wrap">
+      <button form-type="submit" class="btn btn-common" loading="{{formloading}}" disabled="{{formloading}}"> 保存 </button>
+    </view>
+  </form>
+</view>

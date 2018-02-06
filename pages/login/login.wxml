@@ -1,0 +1,19 @@
+<view class="container">
+  <view class="logo-banner">
+    <image src="/resources/logo-blue.png" mode="aspectFit"></image>
+  </view>
+  <form bindsubmit="formSubmit">
+    <view class="section section-gap">
+      <input disabled="{{formloading}}" class="form-control" name="username" maxlength="16" placeholder="账号/手机号码" value="18610871502" />
+    </view>
+    <view class="section section-gap">
+      <input disabled="{{formloading}}" class="form-control" password name="userpassword" maxlength="16" placeholder="登录密码" value="fl6688" />
+    </view>
+    <view class="section-gap">
+      <navigator class="f-pass" url="/pages/f-pass/f-pass" hover-class="btn-hover">忘记密码?</navigator>
+    </view>
+    <view class="btn-area">
+      <button loading="{{formloading}}" disabled="{{formloading}}" class="btn btn-common" formType="submit">绑定</button>
+    </view>
+  </form>
+</view>

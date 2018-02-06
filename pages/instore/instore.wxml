@@ -1,0 +1,36 @@
+<!--pages/instore/instore.wxml-->
+<view class="container">
+  <view class="current-store">
+    <text class="store-name">{{currentstore}}</text>
+    <text wx:if="{{verifyPositon==true}}" class="current-statu pull-right text-green">位置验证通过</text>
+    <text wx:if="{{verifyPositon==false}}" class="current-statu pull-right text-red">位置验证失败</text>
+  </view>
+  <view wx:if="{{verifyPositon==false}}" class="verify-fail">
+    <view class="no-data">当前位置验证失败，不能录入商品信息!</view>
+    <view class="btn-wrap">
+      <button class="btn-common" bindtap="sacnstorecode">重新扫描商铺二维码</button>
+    </view>
+  </view>
+  <view wx:if="{{verifyPositon==true}}" class="verify-success">
+    <view wx:if="{{item.length==0}}">
+      <view class="no-data">当前暂未录入数据信息，请扫码录入</view>
+      <view class="btn-wrap">
+        <button class="btn-common" bindtap="sacnitem">扫码录入商品信息</button>
+      </view>
+    </view>
+    <view wx:if="{{item.length>0}}">
+      <view class="item-wrap">
+        <block wx:for="{{item}}" wx:key="" wx:for-item="d">
+          <view class="item-list">
+            <text class="pull-left">{{d["name"]}}</text>
+            <text class="pull-right text-red del-item" data-id="{{d['id']}}" bindtap="delitem">删除</text>
+          </view>
+        </block>
+      </view>
+      <view class="twinbtn">
+        <button class="btn-common" bindtap="sacnitem">继续录入</button>
+        <button class="btn-common" bindtap="submitdata">保存</button>
+      </view>
+    </view>
+  </view>
+</view>

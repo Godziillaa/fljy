@@ -1,0 +1,28 @@
+/* pages/login/login.wxss */
+.logo-banner{
+  width: 40%;
+  height: 200rpx;
+  margin: 80rpx auto 0 auto;
+}
+form{
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.f-pass{
+  float: right;
+  padding: 20rpx 0;
+}
+.section{
+  border-bottom: #eee solid 1rpx;
+}
+.btn-area{
+  width: 100%;
+  overflow: hidden;
+}
+.form-control{
+  line-height: 100rpx;
+  height: 100rpx;
+  background-color: #fff;
+}

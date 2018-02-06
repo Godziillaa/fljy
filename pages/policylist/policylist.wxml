@@ -1,0 +1,44 @@
+<!--pages/policylist/policylist.wxml-->
+<view class="container">
+  <view class="search-banner">
+    <view class="logo-wrap"><image class="logo" src="/resources/logo-white.png" mode="aspectFit"></image></view>
+    <navigator class="search-link" url="/pages/research/research?title=政策搜索&fn=policy" open-type="{{openType}}"> <text class="zoom-icon"></text> {{searchTip}}</navigator>
+  </view>
+  <block wx:if="{{policy.length}}" wx:for="{{policy}}" wx:key="i" wx:for-item="d">
+    <view class="normal-list-wrap statu-{{d['input_status']}}">
+      <text class="list-statu"></text>
+      <view class="normal-list-dt">
+        {{d['name']}}
+      </view>
+      <view class="normal-list policy-list">
+        <text class="list-lt">开始</text>
+        <text class="list-content">{{d['start_time']}}</text>
+      </view>
+      <view class="sub-list-wrap">
+        <view class="sub-list">
+          <text class="list-label">商品:</text>
+          <block wx:if="{{d['product_list'].length}}" wx:for="{{d['product_list']}}" wx:key="" wx:for-item="g">
+            <text class="list-content">{{g.proname}}</text>
+          </block>
+          <text wx:if="{{!d['product_list'].length}}" class="text-tip list-content">暂无数据</text>
+        </view>
+        <view class="sub-list">
+          <text class="list-label">店铺:</text>
+          <block wx:if="{{d['shop_list'].length}}" wx:for="{{d['shop_list']}}" wx:key="" wx:for-item="s">
+            <text class="list-content">{{s.name}}</text>
+          </block>
+          <text wx:if="{{!d['shop_list'].length}}" class="text-tip list-content">暂无数据</text>
+        </view>
+      </view>
+      <view class="normal-list policy-list">
+        <text class="list-lb">截止</text>
+        <text class="list-content text-blue">{{d['end_time']}}</text>
+      </view>
+      <navigator wx:if="{{d['input_status']==1}}" class="block-nav" url="/pages/policydetail/policydetail?id={{d['id']}}"></navigator>
+      <navigator wx:if="{{d['input_status']!=1}}" class="block-nav" url="/pages/policybind/policybind?id={{d['id']}}"></navigator>
+    </view>
+  </block>
+  <view class="btn-wrap">
+    <button class="btn btn-common" disabled="{{!loadmore}}" loading="{{loading}}" bindtap="loadMore">{{loadtip}}</button>
+  </view>
+</view>

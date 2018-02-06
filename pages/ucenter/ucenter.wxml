@@ -1,0 +1,10 @@
+<!--pages/ucenter/ucenter.wxml-->
+<view class="container">
+  <view class="item-wrap">
+    <navigator class="item-list menu-list" url="/pages/changepass/changepass" hover-class="menu-list-hover">修改密码</navigator>
+    <view class="item-list menu-list" bindtap="unbindAccount">解除绑定</view>
+  </view>
+  <!-- <view class="btn-wrap">
+    <button class="btn" type="warn" bindtap="logout">退出登录</button>
+  </view>  -->
+</view>

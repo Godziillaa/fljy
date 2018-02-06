@@ -1,0 +1,21 @@
+/* pages/changepass/changepass.wxss */
+form{
+  width: 100%;
+  padding: 40rpx;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.f-pass{
+  float: right;
+  padding: 20rpx 0;
+}
+.btn-area{
+  width: 100%;
+  padding: 40rpx 0;
+  overflow: hidden;
+}
+.form-control{
+  line-height: 100rpx;
+  height: 100rpx;
+  background-color: #fff;
+}

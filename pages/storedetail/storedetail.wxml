@@ -1,0 +1,55 @@
+<!--pages/editstore/editstore.wxml-->
+<view class="container">
+  <view class="form-block">
+    <view class="section">
+      <view class="form-label">店名称</view>
+      <view class="form-content">{{store['name']}}</view>
+    </view>
+    <view class="section">
+      <view class="form-label">联系人</view>
+      <view class="form-content">{{store['linkman']}}</view>
+    </view>
+    <view class="section">
+      <view class="form-label">店铺电话</view>
+      <view class="form-content">{{store['mobile']}}</view>
+    </view>
+    <view class="section">
+      <view class="form-label">店铺分类</view>
+      <view class="form-content">{{store['category_name']}}</view>
+    </view>
+    <view class="section">
+      <view class="form-label">经销商</view>
+      <view class="form-content">{{store['dealer_name']}}</view>
+    </view>
+  </view>
+  <view class="form-block">
+    <view class="section">
+      <view class="form-label">地址选取</view>
+      <view class="form-content">{{store['address']}}</view>
+    </view>
+    <view class="section">
+      <view class="form-label">地址描述</view>
+      <view class="form-content">{{store['address_desc']}}</view>
+    </view>
+  </view>
+  <view class="form-block">
+    <view class="section">
+      <view class="form-label">门头照片</view>
+      <view class="form-col">
+        <view class="thumb-list">
+          <block wx:for="{{thumbArr.thumb}}" wx:for-item="thumb" wx:for-index="x" wx:key="">
+            <view class="prview-thumb-wrap">
+              <image src="{{thumb}}" mode="aspectFill" data-arr="{{thumbArr.original}}" data-src="{{thumbArr.original[x]}}" bindtap="prviewthumb"></image>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="form-block">
+    <view class="section">
+      <view class="form-label">备注</view>
+      <view class="form-content">{{store['remarks']}}</view>
+    </view>
+  </view>
+</view>

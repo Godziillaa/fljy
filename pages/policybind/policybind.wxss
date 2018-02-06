@@ -1,0 +1,25 @@
+/* pages/policybind/policybind.wxss */
+.banner{
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #fff;
+}
+.title-icon{
+  width: 50rpx;
+  height: 50rpx;
+  display: block;
+  margin-right: 20rpx;
+  float: left;
+  margin-top: 5rpx;
+}
+.banner-title{
+  height: 60rpx;
+  padding: 40rpx;
+  background-color: #87c8ff;
+  font-size: 36rpx;
+  line-height: 60rpx;
+  vertical-align: middle;
+}
+.normal-list-dt{
+  margin-bottom: 10rpx;
+}

@@ -1,0 +1,70 @@
+<!--pages/policybind/policybind.wxml-->
+<view class="container">
+  <view class="banner">
+    <view class="banner-title">
+      <image class="title-icon" src="/resources/icons/policy.png" mode="aspectFill"></image>
+      <text>政策信息</text>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">{{policy['name']}}</view>
+    <view class="normal-list">
+      <text class="list-label">商品信息:</text>
+      <block wx:for="{{policy['item']}}" wx:for-item="item">
+        <text class="list-content">{{item}}</text>
+      </block>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">终端店铺:</text>
+      <block wx:for="{{policy['store']}}" wx:for-item="store">
+        <text class="list-content">{{store}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">
+      <image class="title-icon" src="/resources/icons/info.png" mode="aspectFill"></image>
+      <text>业务信息</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">业务员:</text>
+      <text class="list-content">{{policy['operator']}}</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">反点方式:</text>
+      <text class="list-content">{{policy['policyType']}}</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">反点额度:</text>
+      <text class="list-content">{{policy['amount']}}</text>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">
+      <image class="title-icon" src="/resources/icons/data.png" mode="aspectFill"></image>
+      <text>数据详情</text>
+    </view>
+    <view wx:if="{{policy['list'].length==0}}">
+      <view class="no-data">当前暂未录入数据信息，请扫码录入</view>
+      <view class="btn-wrap">
+        <button class="btn-common" bindtap="sacnstorecode">扫描终端店铺二维码</button>
+      </view>
+    </view>
+    <view wx:if="{{policy['list'].length>0}}">
+      <block wx:for="{{policy['list']}}" wx:for-item="list">
+        <view class="dl-list">
+          <view class="list-dt">{{list["store"]}}</view>
+          <view class="list-dd">
+            <block wx:for="{{list['item']}}" wx:for-item="item">
+              <text class="list-content">{{item}}</text>
+            </block>
+          </view>
+        </view>
+      </block>
+      <view class="twinbtn">
+        <button class="btn btn-common" bindtap="sacnstorecode">继续操作</button>
+        <button class="btn btn-common" bindtap="submitdata">完成</button>
+      </view>
+    </view>
+  </view>
+</view>

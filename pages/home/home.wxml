@@ -1,0 +1,35 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+  <view class="center-top">
+    <view class="current-date">
+      <text class="yyyymm">{{cDate.y}}年{{cDate.m}}月</text>
+      <text class="dd">{{cDate.d}}日</text>
+    </view>
+    <view class="userinfo" bindtap="goUcenter">
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{realname}}</text>
+    </view>
+  </view>
+  <view wx:if="{{mystores}}" class="my-stores-wrap">
+    <view class="stores-list">
+      <view class="label">
+        <image src="/resources/icons/store.png"></image>
+        <text>负责店铺</text>
+      </view>
+      <view class="list-wrap">
+        <block wx:for="{{mystores}}" wx:key="i" wx:for-index="index" wx:for-item="d">
+          <view class="clearfix">
+            <view class="index">{{index+1}}</view>
+            <view class="list-store">{{d}}</view>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="item-wrap">
+    <navigator class="item-list menu-list" url="/pages/policylist/policylist?statu=0" hover-class="menu-list-hover">待处理政策  <text class="num" wx:if="{{policyPending}}">{{policyPending}}</text> </navigator>
+    <navigator class="item-list menu-list" url="/pages/policylist/policylist?statu=1" hover-class="menu-list-hover">已处理政策 <text class="num" wx:if="{{policyDone}}">{{policyDone}}</text></navigator>
+    <navigator class="item-list menu-list" url="/pages/stores/stores?statu=0" hover-class="menu-list-hover">待审核终端店 <text class="num" wx:if="{{storesPending}}">{{storesPending}}</text></navigator>
+    <navigator class="item-list menu-list" url="/pages/stores/stores?statu=1" hover-class="menu-list-hover">已审核终端店 <text class="num" wx:if="{{storesDone}}">{{storesDone}}</text></navigator>
+  </view>
+</view>

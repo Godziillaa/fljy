@@ -1,0 +1,80 @@
+<!--pages/policydetail/policydetail.wxml-->
+<view class="container">
+  <view class="banner">
+    <view class="banner-title">
+      <image class="title-icon" src="/resources/icons/policy.png" mode="aspectFill"></image>
+      <text>政策信息</text>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">{{policy['name']}}</view>
+    <view class="normal-list">
+      <text class="list-label">商品信息:</text>
+      <block wx:if="{{policy['product_list'].length}}" wx:for="{{policy['product_list']}}" wx:key="" wx:for-item="g">
+        <text class="list-content">{{g.proname}}</text>
+      </block>
+      <text wx:if="{{!policy['product_list'].length}}" class="text-tip list-content">暂无数据</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">终端店铺:</text>
+      <block wx:if="{{policy['shop_list'].length}}" wx:for="{{policy['shop_list']}}" wx:key="" wx:for-item="s">
+        <text class="list-content">{{s.name}}</text>
+      </block>
+      <text wx:if="{{!policy['shop_list'].length}}" class="text-tip list-content">暂无数据</text>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">
+      <image class="title-icon" src="/resources/icons/info.png" mode="aspectFill"></image>
+      <text>业务信息</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">创建人:</text>
+      <text wx:if="{{policy['creator']}}" class="list-content">{{policy['creator']}}</text>
+      <text wx:if="{{!policy['creator']}}" class="text-tip list-content">暂无数据</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">审核人:</text>
+      <text wx:if="{{policy['auditor']}}" class="list-content">{{policy['auditor']}}</text>
+      <text wx:if="{{!policy['auditor']}}" class="text-tip list-content">暂无数据</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">业务员:</text>
+      <text wx:if="{{policy['salesman']}}" class="list-content">{{policy['salesman']}}</text>
+      <text wx:if="{{!policy['salesman']}}" class="text-tip list-content">暂无数据</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">反点方式:</text>
+      <text wx:if="{{policy['rebate_method']==1}}" class="list-content">现金</text>
+      <text wx:if="{{policy['rebate_method']==2}}" class="list-content">等价酒</text>
+    </view>
+    <view class="normal-list">
+      <text class="list-label">反点额度:</text>
+      <block wx:if="{{policy['rebate_method']==1}}">
+        <text class="list-content">{{policy['rebate_cash']}}</text>
+      </block>
+      <block wx:if="{{policy['rebate_method']==2}}">
+        <text class="list-content">{{policy['rebate_sale_num']}} 返 {{policy['rebate_num']}}</text>
+      </block>
+    </view>
+  </view>
+  <view class="normal-list-wrap">
+    <view class="normal-list-dt">
+      <image class="title-icon" src="/resources/icons/data.png" mode="aspectFill"></image>
+      <text>数据详情</text>
+    </view>
+    <block wx:if="{{policy['list']}}" wx:for="{{policy['list']}}" wx:key="a" wx:for-item="list">
+      <view class="dl-list">
+        <view class="list-dt">{{list["store"]}}</view>
+        <view class="list-dd">
+          <block wx:for="{{list['item']}}" wx:key="i" wx:for-item="item">
+            <text class="list-content">{{item}}</text>
+          </block>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{!policy['list']}}" class="no-data">
+      暂无数据
+    </view>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <view class="logo">
+    <image src="/resources/logo-white.png" mode="aspectFit"></image>
+    <view class="loadingdot">
+      <view class="dot"></view>
+      <view class="dot"></view>
+      <view class="dot"></view>
+      <view class="dot"></view>
+      <view class="dot"></view>
+    </view>
+  </view>
+</view>

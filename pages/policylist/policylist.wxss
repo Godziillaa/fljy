@@ -1,0 +1,23 @@
+/* pages/policylist/policylist.wxss */
+.normal-list-wrap:before{
+  content:"";
+  display: block;
+  width: 0;
+  height: 0;
+  border: transparent solid 16rpx;
+  border-left-color: #a6a6a6;
+  position: absolute;
+  top: 110rpx;
+  right: 32rpx;
+}
+.normal-list-wrap:after{
+  content:"";
+  display: block;
+  width: 0;
+  height: 0;
+  border: transparent solid 16rpx;
+  border-left-color: #fff;
+  position: absolute;
+  top: 110rpx;
+  right: 37rpx;
+}

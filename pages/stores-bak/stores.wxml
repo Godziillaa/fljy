@@ -1,0 +1,48 @@
+<!--pages/stores/stores.wxml-->
+<view class="container">
+  <view class="search-banner">
+    <navigator class="add-btn" url="/pages/editstore/editstore?id=new">+</navigator>
+    <view class="logo-wrap"><image class="logo" src="/resources/logo-white.png" mode="aspectFit"></image></view>
+    <navigator class="search-link" url="/pages/research/research?title=店铺搜索&fn=shop" open-type="{{openType}}"> <text class="zoom-icon"></text> {{searchTip}}</navigator>
+  </view>
+  <block wx:for="{{list}}" wx:for-index="ind" wx:key="i" wx:for-item="d">
+    <view class="normal-list-wrap statu-{{d['status']}}">
+      <view class="store-list-avatar">
+        <image src="{{d['image']}}" mode="aspectFill"></image>
+      </view>
+      <view class="store-list-info">
+        <view class="normal-list-dt">
+          {{d['name']}}
+        </view>
+        <view class="normal-list">
+          <text class="list-label">店等级:</text>
+          <text class="list-content">{{d['category']}}</text>
+        </view>
+        <view class="normal-list">
+          <text class="list-label">店经理:</text>
+          <text class="list-content">{{d['linkman']}}</text>
+        </view>
+        <view class="normal-list">
+          <text class="list-label">电话:</text>
+          <text class="list-content">{{d['mobile']}}</text>
+        </view>
+      </view>
+      <view wx:if="{{delindex==ind}}" class="del-btn" data-id="{{d['id']}}" data-index="{{ind}}" bindtap="delStore">删除</view>
+      <view wx:if="{{d['status']!=1}}" class="longtapmask" data-index="{{ind}}" bindtap="cancelpress" bindlongpress="calldel"></view>
+      <navigator wx:if="{{d['status']==1}}" class="store-nav blue" url="/pages/storedetail/storedetail?id={{d['id']}}">查看</navigator>
+      <navigator wx:if="{{d['status']!=1}}" class="store-nav green" url="/pages/editstore/editstore?id={{d['id']}}">修改</navigator>
+    </view>
+  </block>
+  <view wx:if="{{list.length != 0}}" class="btn-wrap">
+    <button class="btn btn-common" disabled="{{!loadmore}}" loading="{{loading}}" bindtap="loadMore">{{loadtip}}</button>
+  </view>
+  <block wx:if="{{list.length==0}}">
+    <view class="no-data">
+      <image src="/resources/icons/store-empty.png" mode="aspectFit"></image>
+      <text>当前没有店铺</text>
+    </view>
+    <view class="btn-wrap btn-bottom">
+      <navigator class="btn btn-common" url="/pages/editstore/editstore?id=new">新建终端店</navigator>
+    </view>
+  </block>
+</view>

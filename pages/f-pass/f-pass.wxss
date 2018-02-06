@@ -1,0 +1,9 @@
+/* pages/f-pass/f-pass.wxss */
+.container{
+  padding: 40rpx;
+}
+text{
+  width: 100%;
+  display: block;
+  margin-bottom: 20rpx;
+}
